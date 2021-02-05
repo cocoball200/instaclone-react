@@ -6,6 +6,7 @@ import './Feed.scss';
 class Feed extends Component {
   state = {
     feedData: [],
+    isLike: false,
   }
   componentDidMount() {
     fetch('/data/feedData.json', {
@@ -17,6 +18,12 @@ class Feed extends Component {
           feedData: data
         })
       })
+  }
+
+  handleHeart = () => {
+    this.setState({
+      isLike: !this.state.isLike
+    })
   }
   render() {
     const { feedData } = this.state;

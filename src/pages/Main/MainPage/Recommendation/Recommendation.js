@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import './Recommendation.scss';
 
 class Recommendation extends Component {
+  constructor() {
+    super()
+    this.state = {
+      followerList: [],
+      isFollowing: false,
+    }
 
-  state = {
-    followerList: [],
-    isFollowing: false,
   }
+
 
   componentDidMount() {
     fetch('/data/followerData.json', {
@@ -25,8 +29,8 @@ class Recommendation extends Component {
     this.setState({ isFollowing: !this.state.isFollowing })
   }
   render() {
-    const { mainData, isFollowing } = this.props;
-    const { followerList } = this.state;
+    const { mainData } = this.props;
+    const { followerList, isFollowing } = this.state;
     return (
       <aside className="recommendation">
         <div className="main_right_container">
@@ -54,7 +58,7 @@ class Recommendation extends Component {
                       <span className="user_id">{follower.nickname}</span>
                       <span className="user_follow_status">{follower.content}</span>
                     </div>
-                    <div className="follow_text" onClick={this.handleFollowing}>{isFollowing ? "Follow" : "Unfollow"}</div>
+                    <div className="follow_text" onClick={() => this.handleFollowing(follower.id)} id={isFollowing ? "pink" : "blue"}>{isFollowing ? "Follow" : "Unfollow"}</div>
                   </div>
                 )
               })}
