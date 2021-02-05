@@ -48,6 +48,8 @@ class Login extends React.Component {
         const { iscolor, id, password } = this.state
         return (
             <section className="login_page">
+                <div className="login_image_container">
+                </div>
                 <main className="login_container">
 
                     <div className="login_form">
