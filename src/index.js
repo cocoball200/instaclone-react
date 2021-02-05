@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from "./pages/Main/Main";
-import Login from "./pages/Login/Login";
+import App from "./App";
+import '../src/styles/common.scss'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
